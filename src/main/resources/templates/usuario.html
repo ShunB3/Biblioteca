@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-Type" content="text/html">
+        <title>Usuario</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    	<link rel="stylesheet" href="assets/css/styles.css">
+    </head>
+    
+    <body>
+		<style>
+				/* Estilos CSS ambientados en una biblioteca con tonos de gris oscuro */
+				
+				/* Fondo y tipografía */
+				body {
+				    font-family: Arial, sans-serif;
+				    background-color: #f2f2f2; /* Gris claro */
+				    color: #333;
+				}
+				
+				/* Encabezado */
+				h1 {
+				    color: #444; /* Gris oscuro */
+				}
+				
+				/* Tarjetas */
+				.card {
+				    background-color: #fff;
+				    border-radius: 10px;
+				    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+				}
+				
+				.card-header {
+				    background-color: #444; /* Gris oscuro */
+				    color: #fff;
+				}
+				
+				.card-body {
+				    padding: 20px;
+				}
+				
+				/* Botones */
+				.btn {
+				    background-color: #444; /* Gris oscuro */
+				    border-color: #444; /* Gris oscuro */
+				    color: #fff;
+				}
+				
+				.btn:hover {
+				    background-color: #666; /* Gris medio */
+				    border-color: #666; /* Gris medio */
+				}
+				
+				.btn:focus,
+				.btn.focus {
+				    box-shadow: 0 0 0 0.2rem rgba(68, 68, 68, 0.5); /* Sombra gris oscuro */
+				}
+		
+		
+			</style>
+		
+        <div class="container p-4">
+          <center>  <h2 class="section__title">TU INFO</h2></center><br><br>
+            <table class="table table-hover"> 
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nombre</th>
+                        <th>Edad</th>
+                        <th>Direccion</th>
+						<th>Correo</th>
+                    </tr>
+                </thead>
+        
+                <tbody>
+                    <tr>
+                        <td th:text="${usuario.id}"></td>
+                        <td th:text="${usuario.nombre}"> </td>
+                        <td th:text="${usuario.edad}"> </td>
+                        <td th:text="${usuario.direccion}"> </td>
+						<td th:text="${usuario.correo}"> </td>
+                    </tr>
+                 </tbody>
+            </table>
+			
+			<h1 class="mt-5">Libros Disponibles</h1>
+		    <div th:each="paquete : ${listaPaquetes}">
+		        <div class="d-flex align-items-center mb-3">
+		            <span th:text="${paquete.titulo}" class="me-3 fw-2" style="margin-right: 20px;"></span>
+		            <button type="button" class="btn btn-primary" onclick="this.disabled=true">Solicitar Libro</button>
+		        </div>
+		    </div>
+			
+            <div class="d-flex justify-content-center">
+                <div class="p-3 "><br><a href="/" class="btn btn-outline-success">Inicio</a></div>
+            </div>
+         </div>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+     </body>
+</html>
